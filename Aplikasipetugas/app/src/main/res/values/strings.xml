@@ -1,0 +1,177 @@
+<resources>
+    <string name="app_name">Aplikasipetugas</string>
+    <string name="umur">umur</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="linksudahpunyaakun">Sudah Punya Akun? Login</string>
+    <string name="linkbelumpunyaakun">Belum Punya Akun? Register</string>
+    <array name="agama">
+        <item>-Pilih-</item>
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Budha</item>
+        <item>Hindu</item>
+        <item>Konghuchu</item>
+    </array>
+    <array name="jenis_kelamin">
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </array>
+    <array name="jenis_kelamin2">
+        <item>-Pilih-</item>
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </array>
+    <array name="lahir_aterm">
+        <item>-Pilih-</item>
+        <item>Aterm</item>
+        <item>Mati</item>
+        <item>Preterm</item>
+        <item>Post Term</item>
+    </array>
+    <array name="lahir_hidup">
+        <item>-Pilih-</item>
+        <item>Hidup</item>
+        <item>Mati</item>
+        <item>Abortus</item>
+    </array>
+    <array name="lahir_spontan">
+        <item>-Pilih-</item>
+        <item>Spontan</item>
+        <item>SC</item>
+        <item>Lainnya</item>
+    </array>
+    <array name="pendidikan">
+        <item>-Pilih-</item>
+        <item>TK/Sederajat</item>
+        <item>SD/Sederajat</item>
+        <item>SMP/Sederajat</item>
+        <item>SMA/Sederajat</item>
+        <item>S-1/Sederajat</item>
+        <item>S-2/Sederajat</item>
+        <item>S-3/Sederajat</item>
+        <item>Tidak Sekolah</item>
+    </array>
+    <array name="pilih_akun">
+        <item>Petugas Posyandu</item>
+        <item>Admin</item>
+        <item>Ibu Posyandu</item>
+    </array>
+    <array name="pilih_datakesehatan_anak">
+        <item>Kesehatan Bayi Baru Lahir</item>
+        <item>Kesehatan Imunisasi Anak</item>
+        <item>Pemberian Vitamin &amp; Obat Cacing</item>
+        <item>Data KMS</item>
+    </array>
+    <array name="pilih_datakesehatan_ibu_1">
+        <item>Kesehatan Ibu Hamil</item>
+        <item>Riwayat Kesehatan Ibu Hamil</item>
+        <item>Kesehatan Ibu Sedang Hamil</item>
+        <item>Kesehatan Ibu Bersalin</item>
+        <item>Kesehatan Ibu Nifas</item>
+    </array>
+    <array name="pilih_datakesehatan_ibu_2">
+        <item>Kesehatan Ibu Hamil</item>
+        <item>Kesehatan Ibu Bersalin</item>
+        <item>Kesehatan Ibu Nifas</item>
+    </array>
+    <array name="pilih_datakesehatan_ibu_3">
+        <item>Kesehatan Ibu Hamil</item>
+        <item>Kesehatan Ibu Bersalin</item>
+        <item>Kesehatan Ibu Nifas</item>
+<!--        <item>Riwayat Kesehatan Ibu Nifas</item>-->
+<!--        <item>Kesehatan Ibu Sedang Nifas</item>-->
+    </array>
+    <array name="pilih_keadaan_bayi">
+        <item>-Pilih-</item>
+        <item>Sehat</item>
+        <item>Sakit</item>
+        <item>Kelainan Bawaan</item>
+        <item>Meninggal</item>
+    </array>
+    <array name="pilih_keadaan_ibu">
+        <item>-Pilih-</item>
+        <item>Sehat</item>
+        <item>Sakit</item>
+        <item>Meninggal</item>
+    </array>
+    <array name="pilih_komplikasi_nifas">
+        <item>-Pilih-</item>
+        <item>Pendarahan</item>
+        <item>Infeksi</item>
+        <item>Hipertensi</item>
+        <item>Lain-lain: Depresi post partum</item>
+        <item>Tidak Ada</item>
+    </array>
+
+    <array name="pilih_kontrasepsi_sebelum_hamil">
+        <item>-Pilih-</item>
+        <item>Pil KB</item>
+        <item>Suntik KB 1 Bulan</item>
+        <item>Suntik KB 3 Bulan</item>
+        <item>Implan</item>
+        <item>Kondom</item>
+        <item>AKDR (IUD)</item>
+        <item>Tidak Ada</item>
+    </array>
+
+    <array name="pilih_golongan_darah">
+        <item>-Pilih-</item>
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </array>
+
+    <array name="pilih_riwayat_penyakit">
+        <item>-Pilih-</item>
+        <item>Preeklamsia</item>
+        <item>Diabetes</item>
+        <item>Muntah Kronis</item>
+        <item>Pendarahan</item>
+        <item>Toksoplasmosis</item>
+        <item>Berat Badan Yang Rendah</item>
+        <item>Depresi</item>
+        <item>Kehamilan Ektopik</item>
+        <item>Tidak Ada</item>
+    </array>
+
+    <array name="pilih_riwayat_alergi">
+        <item>-Pilih-</item>
+        <item>Asma</item>
+        <item>Gatal Pada Mata</item>
+        <item>Roam Kulit</item>
+        <item>Hidung Gatal Dan Berair</item>
+        <item>Bersin-bersin</item>
+        <item>Diare atau Muntah</item>
+        <item>Tidak Ada</item>
+    </array>
+
+    <array name="pilih_status_imunisasi_tetanus">
+        <item>-Pilih-</item>
+        <item>TT1</item>
+        <item>TT2</item>
+        <item>TT3</item>
+        <item>TT4</item>
+        <item>TT5</item>
+    </array>
+
+    <array name="pilih_status_kehamilan">
+        <item>-Pilih-</item>
+        <item>Sedang Berlangsung</item>
+        <item>Berakhir</item>
+    </array>
+
+    <array name="pilih_penolong_persalinan">
+        <item>-Pilih-</item>
+        <item>Dokter Kandungan</item>
+        <item>Bidan</item>
+        <item>Perawat Yang Terlatih</item>
+        <item>Dukun Bayi</item>
+    </array>
+
+    <array name="pilih_cara_persalinan">
+        <item>-Pilih-</item>
+        <item>Persalinan Pervaginam</item>
+        <item>Operasi Caesar</item>
+    </array>
+</resources>

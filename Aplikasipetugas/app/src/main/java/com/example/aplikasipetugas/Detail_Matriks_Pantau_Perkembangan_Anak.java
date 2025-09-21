@@ -1,0 +1,588 @@
+package com.example.aplikasipetugas;
+
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Detail_Matriks_Pantau_Perkembangan_Anak extends AppCompatActivity {
+    TextView anak_ke;
+    Button btnbatal;
+    Button btnsimpan;
+    ImageView butonlogout;
+    EditText etxhasil_1;
+    EditText etxhasil_12;
+    EditText etxhasil_15;
+    EditText etxhasil_18;
+    EditText etxhasil_21;
+    EditText etxhasil_24;
+    EditText etxhasil_3;
+    EditText etxhasil_30;
+    EditText etxhasil_36;
+    EditText etxhasil_42;
+    EditText etxhasil_48;
+    EditText etxhasil_54;
+    EditText etxhasil_6;
+    EditText etxhasil_60;
+    EditText etxhasil_66;
+    EditText etxhasil_72;
+    EditText etxhasil_9;
+    EditText etxtanggal_pemantauan_perkembangan_1;
+    EditText etxtanggal_pemantauan_perkembangan_12;
+    EditText etxtanggal_pemantauan_perkembangan_15;
+    EditText etxtanggal_pemantauan_perkembangan_18;
+    EditText etxtanggal_pemantauan_perkembangan_21;
+    EditText etxtanggal_pemantauan_perkembangan_24;
+    EditText etxtanggal_pemantauan_perkembangan_3;
+    EditText etxtanggal_pemantauan_perkembangan_30;
+    EditText etxtanggal_pemantauan_perkembangan_36;
+    EditText etxtanggal_pemantauan_perkembangan_42;
+    EditText etxtanggal_pemantauan_perkembangan_48;
+    EditText etxtanggal_pemantauan_perkembangan_54;
+    EditText etxtanggal_pemantauan_perkembangan_6;
+    EditText etxtanggal_pemantauan_perkembangan_60;
+    EditText etxtanggal_pemantauan_perkembangan_66;
+    EditText etxtanggal_pemantauan_perkembangan_72;
+    EditText etxtanggal_pemantauan_perkembangan_9;
+    EditText etxtanggal_pemantauan_selanjutnya_1;
+    EditText etxtanggal_pemantauan_selanjutnya_12;
+    EditText etxtanggal_pemantauan_selanjutnya_15;
+    EditText etxtanggal_pemantauan_selanjutnya_18;
+    EditText etxtanggal_pemantauan_selanjutnya_21;
+    EditText etxtanggal_pemantauan_selanjutnya_24;
+    EditText etxtanggal_pemantauan_selanjutnya_3;
+    EditText etxtanggal_pemantauan_selanjutnya_30;
+    EditText etxtanggal_pemantauan_selanjutnya_36;
+    EditText etxtanggal_pemantauan_selanjutnya_42;
+    EditText etxtanggal_pemantauan_selanjutnya_48;
+    EditText etxtanggal_pemantauan_selanjutnya_54;
+    EditText etxtanggal_pemantauan_selanjutnya_6;
+    EditText etxtanggal_pemantauan_selanjutnya_60;
+    EditText etxtanggal_pemantauan_selanjutnya_66;
+    EditText etxtanggal_pemantauan_selanjutnya_72;
+    EditText etxtanggal_pemantauan_selanjutnya_9;
+    EditText etxtindakan_1;
+    EditText etxtindakan_12;
+    EditText etxtindakan_15;
+    EditText etxtindakan_18;
+    EditText etxtindakan_21;
+    EditText etxtindakan_24;
+    EditText etxtindakan_3;
+    EditText etxtindakan_30;
+    EditText etxtindakan_36;
+    EditText etxtindakan_42;
+    EditText etxtindakan_48;
+    EditText etxtindakan_54;
+    EditText etxtindakan_6;
+    EditText etxtindakan_60;
+    EditText etxtindakan_66;
+    EditText etxtindakan_72;
+    EditText etxtindakan_9;
+    TextView nama_anak;
+    TextView nama_ibu;
+    TextView nik_ibu;
+    ImageView tombol_kembali;
+    TextView tvNamapetugas;
+
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView((int) R.layout.activity_detail_matriks_pantau_perkembangan_anak);
+        this.btnsimpan = (Button) findViewById(R.id.btnsimpan);
+        this.btnbatal = (Button) findViewById(R.id.btnbatal);
+        this.nik_ibu = (TextView) findViewById(R.id.nik_ibu);
+        this.nama_ibu = (TextView) findViewById(R.id.nama_ibuku);
+        this.nama_anak = (TextView) findViewById(R.id.nama_anak);
+        this.anak_ke = (TextView) findViewById(R.id.anak_ke);
+        this.tombol_kembali = (ImageView) findViewById(R.id.tombol_kembali);
+        this.butonlogout = (ImageView) findViewById(R.id.butonlogout);
+        this.tvNamapetugas = (TextView) findViewById(R.id.tvNamapetugas);
+        this.etxtanggal_pemantauan_perkembangan_1 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_1);
+        this.etxtanggal_pemantauan_perkembangan_3 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_3);
+        this.etxtanggal_pemantauan_perkembangan_6 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_6);
+        this.etxtanggal_pemantauan_perkembangan_9 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_9);
+        this.etxtanggal_pemantauan_perkembangan_12 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_12);
+        this.etxtanggal_pemantauan_perkembangan_15 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_15);
+        this.etxtanggal_pemantauan_perkembangan_18 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_18);
+        this.etxtanggal_pemantauan_perkembangan_21 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_21);
+        this.etxtanggal_pemantauan_perkembangan_24 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_24);
+        this.etxtanggal_pemantauan_perkembangan_30 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_30);
+        this.etxtanggal_pemantauan_perkembangan_36 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_36);
+        this.etxtanggal_pemantauan_perkembangan_42 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_42);
+        this.etxtanggal_pemantauan_perkembangan_48 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_48);
+        this.etxtanggal_pemantauan_perkembangan_54 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_54);
+        this.etxtanggal_pemantauan_perkembangan_60 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_60);
+        this.etxtanggal_pemantauan_perkembangan_66 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_66);
+        this.etxtanggal_pemantauan_perkembangan_72 = (EditText) findViewById(R.id.etxtanggal_pemantauan_perkembangan_72);
+        this.etxhasil_1 = (EditText) findViewById(R.id.etxhasil_1);
+        this.etxhasil_3 = (EditText) findViewById(R.id.etxhasil_3);
+        this.etxhasil_6 = (EditText) findViewById(R.id.etxhasil_6);
+        this.etxhasil_9 = (EditText) findViewById(R.id.etxhasil_9);
+        this.etxhasil_12 = (EditText) findViewById(R.id.etxhasil_12);
+        this.etxhasil_15 = (EditText) findViewById(R.id.etxhasil_15);
+        this.etxhasil_18 = (EditText) findViewById(R.id.etxhasil_18);
+        this.etxhasil_21 = (EditText) findViewById(R.id.etxhasil_21);
+        this.etxhasil_24 = (EditText) findViewById(R.id.etxhasil_24);
+        this.etxhasil_30 = (EditText) findViewById(R.id.etxhasil_30);
+        this.etxhasil_36 = (EditText) findViewById(R.id.etxhasil_36);
+        this.etxhasil_42 = (EditText) findViewById(R.id.etxhasil_42);
+        this.etxhasil_48 = (EditText) findViewById(R.id.etxhasil_48);
+        this.etxhasil_54 = (EditText) findViewById(R.id.etxhasil_54);
+        this.etxhasil_60 = (EditText) findViewById(R.id.etxhasil_60);
+        this.etxhasil_66 = (EditText) findViewById(R.id.etxhasil_66);
+        this.etxhasil_72 = (EditText) findViewById(R.id.etxhasil_72);
+        this.etxtindakan_1 = (EditText) findViewById(R.id.etxtindakan_1);
+        this.etxtindakan_3 = (EditText) findViewById(R.id.etxtindakan_3);
+        this.etxtindakan_6 = (EditText) findViewById(R.id.etxtindakan_6);
+        this.etxtindakan_9 = (EditText) findViewById(R.id.etxtindakan_9);
+        this.etxtindakan_12 = (EditText) findViewById(R.id.etxtindakan_12);
+        this.etxtindakan_15 = (EditText) findViewById(R.id.etxtindakan_15);
+        this.etxtindakan_18 = (EditText) findViewById(R.id.etxtindakan_18);
+        this.etxtindakan_21 = (EditText) findViewById(R.id.etxtindakan_21);
+        this.etxtindakan_24 = (EditText) findViewById(R.id.etxtindakan_24);
+        this.etxtindakan_30 = (EditText) findViewById(R.id.etxtindakan_30);
+        this.etxtindakan_36 = (EditText) findViewById(R.id.etxtindakan_36);
+        this.etxtindakan_42 = (EditText) findViewById(R.id.etxtindakan_42);
+        this.etxtindakan_48 = (EditText) findViewById(R.id.etxtindakan_48);
+        this.etxtindakan_54 = (EditText) findViewById(R.id.etxtindakan_54);
+        this.etxtindakan_60 = (EditText) findViewById(R.id.etxtindakan_60);
+        this.etxtindakan_66 = (EditText) findViewById(R.id.etxtindakan_66);
+        this.etxtindakan_72 = (EditText) findViewById(R.id.etxtindakan_72);
+        this.etxtanggal_pemantauan_selanjutnya_1 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_1);
+        this.etxtanggal_pemantauan_selanjutnya_3 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_3);
+        this.etxtanggal_pemantauan_selanjutnya_6 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_6);
+        this.etxtanggal_pemantauan_selanjutnya_9 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_9);
+        this.etxtanggal_pemantauan_selanjutnya_12 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_12);
+        this.etxtanggal_pemantauan_selanjutnya_15 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_15);
+        this.etxtanggal_pemantauan_selanjutnya_18 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_18);
+        this.etxtanggal_pemantauan_selanjutnya_21 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_21);
+        this.etxtanggal_pemantauan_selanjutnya_24 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_24);
+        this.etxtanggal_pemantauan_selanjutnya_30 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_30);
+        this.etxtanggal_pemantauan_selanjutnya_36 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_36);
+        this.etxtanggal_pemantauan_selanjutnya_42 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_42);
+        this.etxtanggal_pemantauan_selanjutnya_48 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_48);
+        this.etxtanggal_pemantauan_selanjutnya_54 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_54);
+        this.etxtanggal_pemantauan_selanjutnya_60 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_60);
+        this.etxtanggal_pemantauan_selanjutnya_66 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_66);
+        this.etxtanggal_pemantauan_selanjutnya_72 = (EditText) findViewById(R.id.etxtanggal_pemantauan_selanjutnya_72);
+        this.tvNamapetugas.setText(Halaman_Login.namapetugas);
+        this.butonlogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Detail_Matriks_Pantau_Perkembangan_Anak.this);
+                builder.setMessage((CharSequence) "Yakin Ingin Logout ?");
+                builder.setPositiveButton((CharSequence) "Ya", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+                    @SuppressLint("WrongConstant")
+                    public void onClick(DialogInterface dialogInterface, int position) {
+                        Halaman_Login.preferenceHelper.putIsLogin(false);
+                        Intent intent = new Intent(Detail_Matriks_Pantau_Perkembangan_Anak.this, Halaman_Login.class);
+                        intent.addFlags(268468224);
+                        Detail_Matriks_Pantau_Perkembangan_Anak.this.startActivity(intent);
+                        Detail_Matriks_Pantau_Perkembangan_Anak.this.finish();
+                    }
+                });
+                builder.setNegativeButton((CharSequence) "Tidak", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.create().show();
+            }
+        });
+        this.tombol_kembali.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Detail_Matriks_Pantau_Perkembangan_Anak.this.startActivity(new Intent(Detail_Matriks_Pantau_Perkembangan_Anak.this.getApplicationContext(), MatriksPantauPerkembanganAnak.class));
+                Detail_Matriks_Pantau_Perkembangan_Anak.this.finish();
+            }
+        });
+        this.nik_ibu.setText(getIntent().getStringExtra("nik_ibu"));
+        this.nama_ibu.setText(getIntent().getStringExtra("nama_ibu"));
+        this.nama_anak.setText(getIntent().getStringExtra("nama_anak"));
+        this.anak_ke.setText(getIntent().getStringExtra("anak_ke"));
+        if (getIntent().hasExtra("detail_matriks_pantau_perkembangan_anak")) {
+            getData();
+        }
+        this.btnsimpan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Volley.newRequestQueue(Detail_Matriks_Pantau_Perkembangan_Anak.this).add(new StringRequest(2, new Configurasi().baseUrl() + "api/updatematrikspantauperkembangananak/" + Detail_Matriks_Pantau_Perkembangan_Anak.this.getIntent().getIntExtra("detail_matriks_pantau_perkembangan_anak", 0), new Response.Listener<String>() {
+                    public void onResponse(String response) {
+                        try {
+                            if (new JSONObject(response).getString(NotificationCompat.CATEGORY_STATUS).equals("berhasil")) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Detail_Matriks_Pantau_Perkembangan_Anak.this);
+                                builder.setTitle((CharSequence) "Sukses");
+                                builder.setMessage((CharSequence) "Berhasil Terupdate");
+                                builder.setPositiveButton((CharSequence) "OK", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Detail_Matriks_Pantau_Perkembangan_Anak.this.finish();
+                                    }
+                                });
+                                builder.create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Detail_Matriks_Pantau_Perkembangan_Anak.this, "Error :" + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+                    /* access modifiers changed from: protected */
+                    public Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> myParams = new HashMap<>();
+                        myParams.put("nik_ibu", Detail_Matriks_Pantau_Perkembangan_Anak.this.nik_ibu.getText().toString());
+                        myParams.put("nama_ibu", Detail_Matriks_Pantau_Perkembangan_Anak.this.nama_ibu.getText().toString());
+                        myParams.put("nama_anak", Detail_Matriks_Pantau_Perkembangan_Anak.this.nama_anak.getText().toString());
+                        myParams.put("anak_ke", Detail_Matriks_Pantau_Perkembangan_Anak.this.anak_ke.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_1", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_1.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_3", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_3.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_6", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_6.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_9", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_9.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_12", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_12.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_15", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_15.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_18", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_18.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_21", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_21.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_24", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_24.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_30", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_30.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_36", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_36.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_42", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_42.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_48", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_48.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_54", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_54.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_60", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_60.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_66", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_66.getText().toString());
+                        myParams.put("tanggal_pemantauan_perkembangan_72", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_72.getText().toString());
+                        myParams.put("hasil_1", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_1.getText().toString());
+                        myParams.put("hasil_3", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_3.getText().toString());
+                        myParams.put("hasil_6", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_6.getText().toString());
+                        myParams.put("hasil_9", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_9.getText().toString());
+                        myParams.put("hasil_12", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_12.getText().toString());
+                        myParams.put("hasil_15", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_15.getText().toString());
+                        myParams.put("hasil_18", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_18.getText().toString());
+                        myParams.put("hasil_21", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_21.getText().toString());
+                        myParams.put("hasil_24", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_24.getText().toString());
+                        myParams.put("hasil_30", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_30.getText().toString());
+                        myParams.put("hasil_36", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_36.getText().toString());
+                        myParams.put("hasil_42", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_42.getText().toString());
+                        myParams.put("hasil_48", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_48.getText().toString());
+                        myParams.put("hasil_54", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_54.getText().toString());
+                        myParams.put("hasil_60", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_60.getText().toString());
+                        myParams.put("hasil_66", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_66.getText().toString());
+                        myParams.put("hasil_72", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_72.getText().toString());
+                        myParams.put("tindakan_1", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_1.getText().toString());
+                        myParams.put("tindakan_3", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_3.getText().toString());
+                        myParams.put("tindakan_6", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_6.getText().toString());
+                        myParams.put("tindakan_9", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_9.getText().toString());
+                        myParams.put("tindakan_12", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_12.getText().toString());
+                        myParams.put("tindakan_15", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_15.getText().toString());
+                        myParams.put("tindakan_18", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_18.getText().toString());
+                        myParams.put("tindakan_21", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_21.getText().toString());
+                        myParams.put("tindakan_24", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_24.getText().toString());
+                        myParams.put("tindakan_30", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_30.getText().toString());
+                        myParams.put("tindakan_36", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_36.getText().toString());
+                        myParams.put("tindakan_42", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_42.getText().toString());
+                        myParams.put("tindakan_48", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_48.getText().toString());
+                        myParams.put("tindakan_54", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_54.getText().toString());
+                        myParams.put("tindakan_60", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_60.getText().toString());
+                        myParams.put("tindakan_66", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_66.getText().toString());
+                        myParams.put("tindakan_72", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_72.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_1", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_1.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_3", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_3.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_6", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_6.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_9", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_9.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_12", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_12.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_15", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_15.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_18", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_18.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_21", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_21.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_24", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_24.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_30", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_30.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_36", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_36.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_42", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_42.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_48", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_48.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_54", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_54.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_60", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_60.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_66", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_66.getText().toString());
+                        myParams.put("tanggal_pemantauan_selanjutnya_72", Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_72.getText().toString());
+                        return myParams;
+                    }
+                });
+            }
+        });
+    }
+
+    /* access modifiers changed from: package-private */
+    public void getData() {
+        Volley.newRequestQueue(this).add(new StringRequest(0, new Configurasi().baseUrl() + "api/detailmatrikspantauperkembangananak/" + getIntent().getIntExtra("detail_matriks_pantau_perkembangan_anak", 0), new Response.Listener<String>() {
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response).getJSONObject("detailmatrikspantauperkembangananak");
+                    String gtanggal_pemantauan_perkembangan_1 = jsonObject.getString("tanggal_pemantauan_perkembangan_1");
+                    String gtanggal_pemantauan_perkembangan_3 = jsonObject.getString("tanggal_pemantauan_perkembangan_3");
+                    String gtanggal_pemantauan_perkembangan_6 = jsonObject.getString("tanggal_pemantauan_perkembangan_6");
+                    String gtanggal_pemantauan_perkembangan_9 = jsonObject.getString("tanggal_pemantauan_perkembangan_9");
+                    String gtanggal_pemantauan_perkembangan_12 = jsonObject.getString("tanggal_pemantauan_perkembangan_12");
+                    String gtanggal_pemantauan_perkembangan_15 = jsonObject.getString("tanggal_pemantauan_perkembangan_15");
+                    String gtanggal_pemantauan_perkembangan_18 = jsonObject.getString("tanggal_pemantauan_perkembangan_18");
+                    String gtanggal_pemantauan_perkembangan_21 = jsonObject.getString("tanggal_pemantauan_perkembangan_21");
+                    String gtanggal_pemantauan_perkembangan_24 = jsonObject.getString("tanggal_pemantauan_perkembangan_24");
+                    String gtanggal_pemantauan_perkembangan_30 = jsonObject.getString("tanggal_pemantauan_perkembangan_30");
+                    String gtanggal_pemantauan_perkembangan_36 = jsonObject.getString("tanggal_pemantauan_perkembangan_36");
+                    String gtanggal_pemantauan_perkembangan_42 = jsonObject.getString("tanggal_pemantauan_perkembangan_42");
+                    String gtanggal_pemantauan_perkembangan_48 = jsonObject.getString("tanggal_pemantauan_perkembangan_48");
+                    String gtanggal_pemantauan_perkembangan_54 = jsonObject.getString("tanggal_pemantauan_perkembangan_54");
+                    String gtanggal_pemantauan_perkembangan_60 = jsonObject.getString("tanggal_pemantauan_perkembangan_60");
+                    String gtanggal_pemantauan_perkembangan_66 = jsonObject.getString("tanggal_pemantauan_perkembangan_66");
+                    String gtanggal_pemantauan_perkembangan_72 = jsonObject.getString("tanggal_pemantauan_perkembangan_72");
+                    String ghasil_1 = jsonObject.getString("hasil_1");
+                    String ghasil_3 = jsonObject.getString("hasil_3");
+                    String ghasil_6 = jsonObject.getString("hasil_6");
+                    String ghasil_9 = jsonObject.getString("hasil_9");
+                    String ghasil_12 = jsonObject.getString("hasil_12");
+                    String ghasil_15 = jsonObject.getString("hasil_15");
+                    String ghasil_18 = jsonObject.getString("hasil_18");
+                    String ghasil_21 = jsonObject.getString("hasil_21");
+                    String ghasil_24 = jsonObject.getString("hasil_24");
+                    String ghasil_30 = jsonObject.getString("hasil_30");
+                    String ghasil_36 = jsonObject.getString("hasil_36");
+                    String ghasil_42 = jsonObject.getString("hasil_42");
+                    String ghasil_48 = jsonObject.getString("hasil_48");
+                    String ghasil_54 = jsonObject.getString("hasil_54");
+                    String ghasil_60 = jsonObject.getString("hasil_60");
+                    String ghasil_66 = jsonObject.getString("hasil_66");
+                    String ghasil_72 = jsonObject.getString("hasil_72");
+                    String gtindakan_1 = jsonObject.getString("tindakan_1");
+                    String gtindakan_3 = jsonObject.getString("tindakan_3");
+                    String gtindakan_6 = jsonObject.getString("tindakan_6");
+                    String gtindakan_9 = jsonObject.getString("tindakan_9");
+                    String gtindakan_12 = jsonObject.getString("tindakan_12");
+                    String gtindakan_15 = jsonObject.getString("tindakan_15");
+                    String gtindakan_18 = jsonObject.getString("tindakan_18");
+                    String gtindakan_21 = jsonObject.getString("tindakan_21");
+                    String gtindakan_24 = jsonObject.getString("tindakan_24");
+                    String gtindakan_30 = jsonObject.getString("tindakan_30");
+                    String gtindakan_36 = jsonObject.getString("tindakan_36");
+                    String gtindakan_42 = jsonObject.getString("tindakan_42");
+                    String gtindakan_48 = jsonObject.getString("tindakan_48");
+                    String gtindakan_54 = jsonObject.getString("tindakan_54");
+                    String gtindakan_60 = jsonObject.getString("tindakan_60");
+                    String gtindakan_66 = jsonObject.getString("tindakan_66");
+                    String gtindakan_72 = jsonObject.getString("tindakan_72");
+                    String gtanggal_pemantauan_selanjutnya_1 = jsonObject.getString("tanggal_pemantauan_selanjutnya_1");
+                    String gtanggal_pemantauan_selanjutnya_3 = jsonObject.getString("tanggal_pemantauan_selanjutnya_3");
+                    String gtanggal_pemantauan_selanjutnya_6 = jsonObject.getString("tanggal_pemantauan_selanjutnya_6");
+                    String gtanggal_pemantauan_selanjutnya_9 = jsonObject.getString("tanggal_pemantauan_selanjutnya_9");
+                    String gtanggal_pemantauan_selanjutnya_12 = jsonObject.getString("tanggal_pemantauan_selanjutnya_12");
+                    String gtanggal_pemantauan_selanjutnya_15 = jsonObject.getString("tanggal_pemantauan_selanjutnya_15");
+                    String gtanggal_pemantauan_selanjutnya_18 = jsonObject.getString("tanggal_pemantauan_selanjutnya_18");
+                    String gtanggal_pemantauan_selanjutnya_21 = jsonObject.getString("tanggal_pemantauan_selanjutnya_21");
+                    String gtanggal_pemantauan_selanjutnya_24 = jsonObject.getString("tanggal_pemantauan_selanjutnya_24");
+                    String gtanggal_pemantauan_selanjutnya_30 = jsonObject.getString("tanggal_pemantauan_selanjutnya_30");
+                    String gtanggal_pemantauan_selanjutnya_36 = jsonObject.getString("tanggal_pemantauan_selanjutnya_36");
+                    String gtanggal_pemantauan_selanjutnya_42 = jsonObject.getString("tanggal_pemantauan_selanjutnya_42");
+                    String gtanggal_pemantauan_selanjutnya_48 = jsonObject.getString("tanggal_pemantauan_selanjutnya_48");
+                    String gtanggal_pemantauan_selanjutnya_54 = jsonObject.getString("tanggal_pemantauan_selanjutnya_54");
+                    String gtanggal_pemantauan_selanjutnya_60 = jsonObject.getString("tanggal_pemantauan_selanjutnya_60");
+                    String gtanggal_pemantauan_selanjutnya_66 = jsonObject.getString("tanggal_pemantauan_selanjutnya_66");
+                    String gtanggal_pemantauan_selanjutnya_72 = jsonObject.getString("tanggal_pemantauan_selanjutnya_72");
+                    JSONObject jSONObject = jsonObject;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_1.setText(gtanggal_pemantauan_perkembangan_1);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_3.setText(gtanggal_pemantauan_perkembangan_3);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_6.setText(gtanggal_pemantauan_perkembangan_6);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_9.setText(gtanggal_pemantauan_perkembangan_9);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_12.setText(gtanggal_pemantauan_perkembangan_12);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_15.setText(gtanggal_pemantauan_perkembangan_15);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_18.setText(gtanggal_pemantauan_perkembangan_18);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_21.setText(gtanggal_pemantauan_perkembangan_21);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_24.setText(gtanggal_pemantauan_perkembangan_24);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_30.setText(gtanggal_pemantauan_perkembangan_30);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_36.setText(gtanggal_pemantauan_perkembangan_36);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_42.setText(gtanggal_pemantauan_perkembangan_42);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_48.setText(gtanggal_pemantauan_perkembangan_48);
+                    String str = gtanggal_pemantauan_perkembangan_1;
+                    String gtanggal_pemantauan_perkembangan_13 = gtanggal_pemantauan_perkembangan_54;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_54.setText(gtanggal_pemantauan_perkembangan_13);
+                    String str2 = gtanggal_pemantauan_perkembangan_13;
+                    String gtanggal_pemantauan_perkembangan_602 = gtanggal_pemantauan_perkembangan_60;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_60.setText(gtanggal_pemantauan_perkembangan_602);
+                    String str3 = gtanggal_pemantauan_perkembangan_602;
+                    String gtanggal_pemantauan_perkembangan_603 = gtanggal_pemantauan_perkembangan_66;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_66.setText(gtanggal_pemantauan_perkembangan_603);
+                    String str4 = gtanggal_pemantauan_perkembangan_603;
+                    String gtanggal_pemantauan_perkembangan_662 = gtanggal_pemantauan_perkembangan_72;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_perkembangan_72.setText(gtanggal_pemantauan_perkembangan_662);
+                    String str5 = gtanggal_pemantauan_perkembangan_662;
+                    String ghasil_13 = ghasil_1;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_1.setText(ghasil_13);
+                    String str6 = ghasil_13;
+                    String ghasil_32 = ghasil_3;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_3.setText(ghasil_32);
+                    String str7 = ghasil_32;
+                    String ghasil_33 = ghasil_6;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_6.setText(ghasil_33);
+                    String str8 = ghasil_33;
+                    String ghasil_92 = ghasil_9;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_9.setText(ghasil_92);
+                    String str9 = ghasil_92;
+                    String ghasil_122 = ghasil_12;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_12.setText(ghasil_122);
+                    String str10 = ghasil_122;
+                    String ghasil_152 = ghasil_15;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_15.setText(ghasil_152);
+                    String str11 = ghasil_152;
+                    String ghasil_182 = ghasil_18;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_18.setText(ghasil_182);
+                    String str12 = ghasil_182;
+                    String ghasil_212 = ghasil_21;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_21.setText(ghasil_212);
+                    String str13 = ghasil_212;
+                    String ghasil_213 = ghasil_24;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_24.setText(ghasil_213);
+                    String str14 = ghasil_213;
+                    String ghasil_302 = ghasil_30;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_30.setText(ghasil_302);
+                    String str15 = ghasil_302;
+                    String ghasil_362 = ghasil_36;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_36.setText(ghasil_362);
+                    String str16 = ghasil_362;
+                    String ghasil_363 = ghasil_42;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_42.setText(ghasil_363);
+                    String str17 = ghasil_363;
+                    String ghasil_482 = ghasil_48;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_48.setText(ghasil_482);
+                    String str18 = ghasil_482;
+                    String ghasil_542 = ghasil_54;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_54.setText(ghasil_542);
+                    String str19 = ghasil_542;
+                    String ghasil_543 = ghasil_60;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_60.setText(ghasil_543);
+                    String str20 = ghasil_543;
+                    String ghasil_662 = ghasil_66;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_66.setText(ghasil_662);
+                    String str21 = ghasil_662;
+                    String ghasil_722 = ghasil_72;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxhasil_72.setText(ghasil_722);
+                    String str22 = ghasil_722;
+                    String ghasil_723 = gtindakan_1;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_1.setText(ghasil_723);
+                    String str23 = ghasil_723;
+                    String gtindakan_13 = gtindakan_3;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_3.setText(gtindakan_13);
+                    String str24 = gtindakan_13;
+                    String gtindakan_62 = gtindakan_6;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_6.setText(gtindakan_62);
+                    String str25 = gtindakan_62;
+                    String gtindakan_92 = gtindakan_9;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_9.setText(gtindakan_92);
+                    String str26 = gtindakan_92;
+                    String gtindakan_122 = gtindakan_12;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_12.setText(gtindakan_122);
+                    String str27 = gtindakan_122;
+                    String gtindakan_152 = gtindakan_15;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_15.setText(gtindakan_152);
+                    String str28 = gtindakan_152;
+                    String gtindakan_153 = gtindakan_18;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_18.setText(gtindakan_153);
+                    String str29 = gtindakan_153;
+                    String gtindakan_212 = gtindakan_21;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_21.setText(gtindakan_212);
+                    String str30 = gtindakan_212;
+                    String gtindakan_242 = gtindakan_24;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_24.setText(gtindakan_242);
+                    String str31 = gtindakan_242;
+                    String gtindakan_302 = gtindakan_30;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_30.setText(gtindakan_302);
+                    String str32 = gtindakan_302;
+                    String gtindakan_303 = gtindakan_36;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_36.setText(gtindakan_303);
+                    String str33 = gtindakan_303;
+                    String gtindakan_422 = gtindakan_42;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_42.setText(gtindakan_422);
+                    String str34 = gtindakan_422;
+                    String gtindakan_482 = gtindakan_48;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_48.setText(gtindakan_482);
+                    String str35 = gtindakan_482;
+                    String gtindakan_483 = gtindakan_54;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_54.setText(gtindakan_483);
+                    String str36 = gtindakan_483;
+                    String gtindakan_602 = gtindakan_60;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_60.setText(gtindakan_602);
+                    String str37 = gtindakan_602;
+                    String gtindakan_662 = gtindakan_66;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_66.setText(gtindakan_662);
+                    String str38 = gtindakan_662;
+                    String gtindakan_663 = gtindakan_72;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtindakan_72.setText(gtindakan_663);
+                    String str39 = gtindakan_663;
+                    String gtanggal_pemantauan_selanjutnya_13 = gtanggal_pemantauan_selanjutnya_1;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_1.setText(gtanggal_pemantauan_selanjutnya_13);
+                    String str40 = gtanggal_pemantauan_selanjutnya_13;
+                    String gtanggal_pemantauan_selanjutnya_32 = gtanggal_pemantauan_selanjutnya_3;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_3.setText(gtanggal_pemantauan_selanjutnya_32);
+                    String str41 = gtanggal_pemantauan_selanjutnya_32;
+                    String gtanggal_pemantauan_selanjutnya_33 = gtanggal_pemantauan_selanjutnya_6;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_6.setText(gtanggal_pemantauan_selanjutnya_33);
+                    String str42 = gtanggal_pemantauan_selanjutnya_33;
+                    String gtanggal_pemantauan_selanjutnya_62 = gtanggal_pemantauan_selanjutnya_9;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_9.setText(gtanggal_pemantauan_selanjutnya_62);
+                    String str43 = gtanggal_pemantauan_selanjutnya_62;
+                    String gtanggal_pemantauan_selanjutnya_92 = gtanggal_pemantauan_selanjutnya_12;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_12.setText(gtanggal_pemantauan_selanjutnya_92);
+                    String str44 = gtanggal_pemantauan_selanjutnya_92;
+                    String gtanggal_pemantauan_selanjutnya_152 = gtanggal_pemantauan_selanjutnya_15;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_15.setText(gtanggal_pemantauan_selanjutnya_152);
+                    String str45 = gtanggal_pemantauan_selanjutnya_152;
+                    String gtanggal_pemantauan_selanjutnya_182 = gtanggal_pemantauan_selanjutnya_18;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_18.setText(gtanggal_pemantauan_selanjutnya_182);
+                    String str46 = gtanggal_pemantauan_selanjutnya_182;
+                    String gtanggal_pemantauan_selanjutnya_212 = gtanggal_pemantauan_selanjutnya_21;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_21.setText(gtanggal_pemantauan_selanjutnya_212);
+                    String str47 = gtanggal_pemantauan_selanjutnya_212;
+                    String gtanggal_pemantauan_selanjutnya_242 = gtanggal_pemantauan_selanjutnya_24;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_24.setText(gtanggal_pemantauan_selanjutnya_242);
+                    String str48 = gtanggal_pemantauan_selanjutnya_242;
+                    String gtanggal_pemantauan_selanjutnya_243 = gtanggal_pemantauan_selanjutnya_30;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_30.setText(gtanggal_pemantauan_selanjutnya_243);
+                    String str49 = gtanggal_pemantauan_selanjutnya_243;
+                    String gtanggal_pemantauan_selanjutnya_362 = gtanggal_pemantauan_selanjutnya_36;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_36.setText(gtanggal_pemantauan_selanjutnya_362);
+                    String str50 = gtanggal_pemantauan_selanjutnya_362;
+                    String gtanggal_pemantauan_selanjutnya_422 = gtanggal_pemantauan_selanjutnya_42;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_42.setText(gtanggal_pemantauan_selanjutnya_422);
+                    String str51 = gtanggal_pemantauan_selanjutnya_422;
+                    String gtanggal_pemantauan_selanjutnya_423 = gtanggal_pemantauan_selanjutnya_48;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_48.setText(gtanggal_pemantauan_selanjutnya_423);
+                    String str52 = gtanggal_pemantauan_selanjutnya_423;
+                    String gtanggal_pemantauan_selanjutnya_542 = gtanggal_pemantauan_selanjutnya_54;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_54.setText(gtanggal_pemantauan_selanjutnya_542);
+                    String str53 = gtanggal_pemantauan_selanjutnya_542;
+                    String gtanggal_pemantauan_selanjutnya_602 = gtanggal_pemantauan_selanjutnya_60;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_60.setText(gtanggal_pemantauan_selanjutnya_602);
+                    String str54 = gtanggal_pemantauan_selanjutnya_602;
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_66.setText(gtanggal_pemantauan_selanjutnya_66);
+                    Detail_Matriks_Pantau_Perkembangan_Anak.this.etxtanggal_pemantauan_selanjutnya_72.setText(gtanggal_pemantauan_selanjutnya_72);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            public void onErrorResponse(VolleyError error) {
+            }
+        }));
+    }
+}
