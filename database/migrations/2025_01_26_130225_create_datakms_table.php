@@ -1,0 +1,226 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('datakms', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nik_ibu', 30);
+            $table->string('nama_ibu', 100);
+            $table->string('nama_anak', 100);
+            $table->string('anak_ke', 5);
+            $table->string('jenis_kelamin', 10);
+           $table->longText('bulan_penimbangan_0')->nullable();
+           $table->longText('bulan_penimbangan_1')->nullable();
+           $table->longText('bulan_penimbangan_2')->nullable();
+           $table->longText('bulan_penimbangan_3')->nullable();
+           $table->longText('bulan_penimbangan_4')->nullable();
+           $table->longText('bulan_penimbangan_5')->nullable();
+           $table->longText('bulan_penimbangan_6')->nullable();
+           $table->longText('bulan_penimbangan_7')->nullable();
+           $table->longText('bulan_penimbangan_8')->nullable(); 
+           $table->longText('bulan_penimbangan_9')->nullable();
+           $table->longText('bulan_penimbangan_10')->nullable();
+           $table->longText('bulan_penimbangan_11')->nullable();
+           $table->longText('bulan_penimbangan_12')->nullable();
+           $table->longText('bulan_penimbangan_13')->nullable();
+           $table->longText('bulan_penimbangan_14')->nullable();
+           $table->longText('bulan_penimbangan_15')->nullable();
+           $table->longText('bulan_penimbangan_16')->nullable();
+           $table->longText('bulan_penimbangan_17')->nullable();
+           $table->longText('bulan_penimbangan_18')->nullable();
+           $table->longText('bulan_penimbangan_19')->nullable();
+           $table->longText('bulan_penimbangan_20')->nullable();
+           $table->longText('bulan_penimbangan_21')->nullable();
+           $table->longText('bulan_penimbangan_22')->nullable();
+           $table->longText('bulan_penimbangan_23')->nullable(); 
+           $table->longText('bulan_penimbangan_24')->nullable();
+           $table->longText('bulan_penimbangan_25')->nullable();
+           $table->longText('bulan_penimbangan_26')->nullable();
+           $table->longText('bulan_penimbangan_27')->nullable();
+           $table->longText('bulan_penimbangan_28')->nullable();
+           $table->longText('bulan_penimbangan_29')->nullable();
+           $table->longText('bulan_penimbangan_30')->nullable();
+           $table->longText('bulan_penimbangan_31')->nullable();
+           $table->longText('bulan_penimbangan_32')->nullable();
+           $table->longText('bulan_penimbangan_33')->nullable();
+           $table->longText('bulan_penimbangan_34')->nullable();
+           $table->longText('bulan_penimbangan_35')->nullable();
+           $table->longText('bulan_penimbangan_36')->nullable();
+           $table->longText('bulan_penimbangan_37')->nullable();
+           $table->longText('bulan_penimbangan_38')->nullable();
+           $table->longText('bulan_penimbangan_39')->nullable();
+           $table->longText('bulan_penimbangan_40')->nullable();
+           $table->longText('bulan_penimbangan_41')->nullable();
+           $table->longText('bulan_penimbangan_42')->nullable();
+           $table->longText('bulan_penimbangan_43')->nullable();
+           $table->longText('bulan_penimbangan_44')->nullable();
+           $table->longText('bulan_penimbangan_45')->nullable();
+           $table->longText('bulan_penimbangan_46')->nullable();
+           $table->longText('bulan_penimbangan_47')->nullable();
+           $table->longText('bulan_penimbangan_48')->nullable();
+           $table->longText('bulan_penimbangan_49')->nullable();
+           $table->longText('bulan_penimbangan_50')->nullable();
+           $table->longText('bulan_penimbangan_51')->nullable();
+           $table->longText('bulan_penimbangan_52')->nullable();
+           $table->longText('bulan_penimbangan_53')->nullable();
+           $table->longText('bulan_penimbangan_54')->nullable();
+           $table->longText('bulan_penimbangan_55')->nullable();
+           $table->longText('bulan_penimbangan_56')->nullable();
+           $table->longText('bulan_penimbangan_57')->nullable();
+           $table->longText('bulan_penimbangan_58')->nullable();
+           $table->longText('bulan_penimbangan_59')->nullable();
+           $table->longText('bulan_penimbangan_60')->nullable();
+
+           $table->longText('bb_0')->nullable(); 
+           $table->longText('bb_1')->nullable(); 
+           $table->longText('bb_2')->nullable();
+           $table->longText('bb_3')->nullable();
+           $table->longText('bb_4')->nullable();
+           $table->longText('bb_5')->nullable();
+           $table->longText('bb_6')->nullable();
+           $table->longText('bb_7')->nullable();
+           $table->longText('bb_8')->nullable();
+           $table->longText('bb_9')->nullable();
+           $table->longText('bb_10')->nullable();
+           $table->longText('bb_11')->nullable();
+           $table->longText('bb_12')->nullable();
+           $table->longText('bb_13')->nullable();
+           $table->longText('bb_14')->nullable();
+           $table->longText('bb_15')->nullable();
+           $table->longText('bb_16')->nullable();
+           $table->longText('bb_17')->nullable();
+           $table->longText('bb_18')->nullable();
+           $table->longText('bb_19')->nullable();
+           $table->longText('bb_20')->nullable();
+           $table->longText('bb_21')->nullable();
+           $table->longText('bb_22')->nullable();
+           $table->longText('bb_23')->nullable();
+           $table->longText('bb_24')->nullable();
+           $table->longText('bb_25')->nullable();
+           $table->longText('bb_26')->nullable();
+           $table->longText('bb_27')->nullable();
+           $table->longText('bb_28')->nullable();
+           $table->longText('bb_29')->nullable();
+           $table->longText('bb_30')->nullable();
+           $table->longText('bb_31')->nullable();
+           $table->longText('bb_32')->nullable();
+           $table->longText('bb_33')->nullable();
+           $table->longText('bb_34')->nullable();
+           $table->longText('bb_35')->nullable();
+           $table->longText('bb_36')->nullable();
+           $table->longText('bb_37')->nullable();
+           $table->longText('bb_38')->nullable();
+           $table->longText('bb_39')->nullable();
+           $table->longText('bb_40')->nullable();
+           $table->longText('bb_41')->nullable();
+           $table->longText('bb_42')->nullable();
+           $table->longText('bb_43')->nullable();
+           $table->longText('bb_44')->nullable();
+           $table->longText('bb_45')->nullable();
+           $table->longText('bb_46')->nullable();
+           $table->longText('bb_47')->nullable();
+           $table->longText('bb_48')->nullable();
+           $table->longText('bb_49')->nullable();
+           $table->longText('bb_50')->nullable();
+           $table->longText('bb_51')->nullable();
+           $table->longText('bb_52')->nullable();
+           $table->longText('bb_53')->nullable();
+           $table->longText('bb_54')->nullable();
+           $table->longText('bb_55')->nullable();
+           $table->longText('bb_56')->nullable();
+           $table->longText('bb_57')->nullable();
+           $table->longText('bb_58')->nullable();
+           $table->longText('bb_59')->nullable();
+           $table->longText('bb_60')->nullable();
+   
+  
+   $table->longText('nt_0')->nullable();
+   $table->longText('nt_1')->nullable();
+    $table->longText('nt_2')->nullable();
+    $table->longText('nt_3')->nullable();
+    $table->longText('nt_4')->nullable();
+    $table->longText('nt_5')->nullable();
+    $table->longText('nt_6')->nullable();
+    $table->longText('nt_7')->nullable();
+    $table->longText('nt_8')->nullable();
+    $table->longText('nt_9')->nullable();
+    $table->longText('nt_10')->nullable();
+   $table->longText('nt_11')->nullable();
+   $table->longText('nt_12')->nullable();
+    $table->longText('nt_13')->nullable();
+   $table->longText('nt_14')->nullable();
+   $table->longText('nt_15')->nullable();
+   $table->longText('nt_16')->nullable();
+   $table->longText('nt_17')->nullable();
+   $table->longText('nt_18')->nullable();
+   $table->longText('nt_19')->nullable();
+   $table->longText('nt_20')->nullable();
+   $table->longText('nt_21')->nullable();
+   $table->longText('nt_22')->nullable();
+   $table->longText('nt_23')->nullable();
+    $table->longText('nt_24')->nullable();
+   $table->longText('nt_25')->nullable();
+   $table->longText('nt_26')->nullable();
+   $table->longText('nt_27')->nullable();
+   $table->longText('nt_28')->nullable();
+   $table->longText('nt_29')->nullable();
+   $table->longText('nt_30')->nullable();
+   $table->longText('nt_31')->nullable();
+   $table->longText('nt_32')->nullable();
+   $table->longText('nt_33')->nullable();
+   $table->longText('nt_34')->nullable();
+    $table->longText('nt_35')->nullable();
+   $table->longText('nt_36')->nullable();
+   $table->longText('nt_37')->nullable();
+   $table->longText('nt_38')->nullable();
+   $table->longText('nt_39')->nullable();
+   $table->longText('nt_40')->nullable();
+   $table->longText('nt_41')->nullable();
+   $table->longText('nt_42')->nullable();
+   $table->longText('nt_43')->nullable();
+   $table->longText('nt_44')->nullable();
+   $table->longText('nt_45')->nullable();
+    $table->longText('nt_46')->nullable();
+   $table->longText('nt_47')->nullable();
+   $table->longText('nt_48')->nullable();
+   $table->longText('nt_49')->nullable();
+   $table->longText('nt_50')->nullable();
+   $table->longText('nt_51')->nullable();
+   $table->longText('nt_52')->nullable();
+   $table->longText('nt_53')->nullable();
+   $table->longText('nt_54')->nullable();
+   $table->longText('nt_55')->nullable();
+   $table->longText('nt_56')->nullable();
+    $table->longText('nt_57')->nullable();
+   $table->longText('nt_58')->nullable();
+   $table->longText('nt_59')->nullable();
+   $table->longText('nt_60')->nullable();
+    
+   $table->longText('asi_eksklusif_0')->nullable();
+   $table->longText('asi_eksklusif_1')->nullable();
+    $table->longText('asi_eksklusif_2')->nullable();
+   $table->longText('asi_eksklusif_3')->nullable();
+   $table->longText('asi_eksklusif_4')->nullable();
+   $table->longText('asi_eksklusif_5')->nullable();
+   $table->longText('asi_eksklusif_6')->nullable();
+    $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('datakms');
+    }
+};
