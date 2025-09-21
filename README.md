@@ -26,5 +26,3 @@ E-Posyandu merupakan sistem yang digunakan untuk mengelola dan memonitoring data
 ## Spefikasi Smartphone Untuk Instal Aplikasi Android
 - Sistem Operasi : Android 10
 
-## Spesifikasi Tag NFC yang digunakan
-- Nama perangkat : Tag NFC Universal NTAG 213
