@@ -26,3 +26,5 @@ E-Posyandu merupakan sistem yang digunakan untuk mengelola dan memonitoring data
 ## Spefikasi Smartphone Untuk Instal Aplikasi Android
 - Sistem Operasi : Android 10
 
+## Deployment
+- Kamu bisa melihat website Bidan Koordinator live di: https://eposyandudesamarawali.site/login
